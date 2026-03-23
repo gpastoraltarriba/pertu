@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 from app.config import settings
 
 
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
@@ -30,8 +31,9 @@ app.add_middleware(
 )
 
 # Routers — los iremos añadiendo aquí
-from app.routers import auth
+from app.routers import auth, users
 app.include_router(auth.router, prefix="/api/v1")
+app.include_router(users.router, prefix="/api/v1")
 
 
 @app.get("/")
