@@ -34,7 +34,10 @@ app.add_middleware(
 from app.routers import auth, users
 app.include_router(auth.router, prefix="/api/v1")
 app.include_router(users.router, prefix="/api/v1")
-
+from app.routers import auth, users, workouts
+app.include_router(auth.router, prefix="/api/v1")
+app.include_router(users.router, prefix="/api/v1")
+app.include_router(workouts.router, prefix="/api/v1")
 
 @app.get("/")
 async def root():
